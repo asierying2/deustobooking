@@ -1,4 +1,4 @@
-package obj;
+package es.deusto.deustobooking.obj;
 
 public class Habitacion {
 

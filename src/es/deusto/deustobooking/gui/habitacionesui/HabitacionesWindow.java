@@ -1,4 +1,4 @@
-package gui.habitacionesui;
+package es.deusto.deustobooking.gui.habitacionesui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,7 +22,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 
-import obj.Habitacion;
+import es.deusto.deustobooking.obj.Habitacion;
 // le he explicado el proyecto al chat y lo que quiero hacer y le he pedido que me diga mas o menos todo los imports que tengo que hacer,aqui he usado IA para eso
 
 public class HabitacionesWindow extends JFrame {

@@ -49,7 +49,7 @@ public class LoginWindow extends JFrame {
         c.gridx = 0;
         c.gridy = 1;
         loginPanel.add(passwordLabel, c);
-        
+
         c.gridx = 1;
         c.gridy = 1;
         loginPanel.add(password, c);
@@ -64,7 +64,10 @@ public class LoginWindow extends JFrame {
         setVisible(true);
     }
 
-    static void main(String[] args) {
-        new LoginWindow();
+    //FUENTE-EXTERNA
+    //URL: OpenAI ChatGPT / Codex
+    //ADAPTADO: punto de entrada público y creación de la ventana en el hilo de Swing.
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(LoginWindow::new);
     }
 }

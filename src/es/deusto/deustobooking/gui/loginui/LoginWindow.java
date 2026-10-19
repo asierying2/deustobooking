@@ -10,7 +10,7 @@ public class LoginWindow extends JFrame {
     private static final long serialVersionUID = 1L;
 
     public LoginWindow() {
-        setTitle("Bienvenido/a a DeustoBooking");
+        setTitle("Inicio de sesión a DeustoBooking");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500, 200);
         setLocationRelativeTo(null);

@@ -1,9 +1,9 @@
-package main;
+package es.deusto.deustobooking.main;
 
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
-import gui.habitacionesui.HabitacionesWindow;
-import obj.Habitacion;
+import es.deusto.deustobooking.gui.habitacionesui.HabitacionesWindow;
+import es.deusto.deustobooking.obj.Habitacion;
 
 
 public class MainHabitaciones {

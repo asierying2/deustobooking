@@ -106,7 +106,7 @@ public class HabitacionesWindow extends JFrame {
         visibles.clear();
         int personas = (Integer) huespedes.getValue();
         for (Habitacion h : habitaciones) {
-            if (h.getCapacidad() < personas) {
+            if (h.getCapacidad() != personas) {
                 continue;
             }
             if (soloDisponibles.isSelected() && !h.isDisponible()) {

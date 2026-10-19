@@ -64,9 +64,6 @@ public class LoginWindow extends JFrame {
         setVisible(true);
     }
 
-    //FUENTE-EXTERNA
-    //URL: OpenAI ChatGPT / Codex
-    //ADAPTADO: punto de entrada público y creación de la ventana en el hilo de Swing.
     public static void main(String[] args) {
         SwingUtilities.invokeLater(LoginWindow::new);
     }

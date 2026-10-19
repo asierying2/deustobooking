@@ -15,8 +15,10 @@ public class LoginWindow extends JFrame {
         setLocationRelativeTo(null);
 
         /* Suggestion from ChatGPT: for the layout we want from drafts, we need to use GridBagLayout
-        * that creates invisible tables (similar to GridLayout)
-        * and GridBagConstraints that controls that layout
+        * that creates an invisible, flexible grid (similar to GridLayout, but flexible size)
+        * and GridBagConstraints that controls that layout and the components inside them
+        * GridBagLayout indirectly supports insets (spacing around components in grid cells
+        * through GridBagConstraints), while GridLayout forces components to fill the whole grid
         */
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -53,6 +55,30 @@ public class LoginWindow extends JFrame {
         c.gridx = 1;
         c.gridy = 1;
         loginPanel.add(password, c);
+
+        // Functionality of the buttons
+        loginButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+//                dispose();            When we have a functionality on the interface
+            }
+        });
 
         buttonPanel.add(loginButton);
         buttonPanel.add(registerButton);

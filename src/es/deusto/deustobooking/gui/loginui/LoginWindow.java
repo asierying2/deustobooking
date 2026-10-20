@@ -14,6 +14,7 @@ public class LoginWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500, 200);
         setLocationRelativeTo(null);
+        setResizable(false);
 
         /* Suggestion from ChatGPT: for the layout we want from drafts, we need to use GridBagLayout
         * that creates an invisible, flexible grid (similar to GridLayout, but flexible size)
@@ -62,14 +63,14 @@ public class LoginWindow extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+//                if (nameEmail.getText().equals(""));
             }
         });
 
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new RegisterWindow();
             }
         });
 

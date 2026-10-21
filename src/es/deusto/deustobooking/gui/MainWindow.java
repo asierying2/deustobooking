@@ -13,5 +13,10 @@ public class MainWindow extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        setVisible(true);
     }
+    public static void main(String[] args) {
+		new MainWindow();
+	}
 }

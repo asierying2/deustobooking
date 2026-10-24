@@ -92,7 +92,7 @@ public class LoginWindow extends JFrame {
         setVisible(true);
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         new LoginWindow();
     }
 }

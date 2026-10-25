@@ -19,6 +19,7 @@ public class AdminWindow  extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		crearMenu();
+		add(new ResumenAdminPanel(), BorderLayout.CENTER);
 		
 	};
 	

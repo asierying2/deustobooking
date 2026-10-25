@@ -30,8 +30,11 @@ public class RegisterWindow extends JFrame {
         JButton createAccButton = new JButton("Crear cuenta");
         JButton cancelButton = new JButton("Cancelar");
         
-        JLabel nameField = new JLabel("Correo electrónico: ");
-        JTextField nameEmail = new JTextField(30);
+        JLabel usernameField = new JLabel("Usuario: ");
+        JTextField username = new JTextField(14);
+        
+        JLabel emailField = new JLabel("Correo electrónico: ");
+        JTextField email = new JTextField(30);
 
         JLabel passwordLabel = new JLabel("Contraseña (máximo 22 caracteres): ");
         JPasswordField password = new JPasswordField(22);
@@ -45,29 +48,37 @@ public class RegisterWindow extends JFrame {
         
         c.insets = new Insets(10, 10, 10, 10); 
         c.anchor = GridBagConstraints.WEST;
-
+        
         c.gridx = 0;
         c.gridy = 0;
-        loginPanel.add(nameField, c);
+        loginPanel.add(usernameField, c);
 
         c.gridx = 1;
         c.gridy = 0;
-        loginPanel.add(nameEmail, c);
-
+        loginPanel.add(username, c);
+        
         c.gridx = 0;
         c.gridy = 1;
+        loginPanel.add(emailField, c);
+
+        c.gridx = 1;
+        c.gridy = 1;
+        loginPanel.add(email, c);
+
+        c.gridx = 0;
+        c.gridy = 2;
         loginPanel.add(passwordLabel, c);
         
         c.gridx = 1;
-        c.gridy = 1;
+        c.gridy = 2;
         loginPanel.add(password, c);
         
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 3;
         loginPanel.add(passwordRLabel, c);
         
         c.gridx = 1;
-        c.gridy = 2;
+        c.gridy = 3;
         loginPanel.add(passwordR, c);
         
         buttonPanel.add(createAccButton);
@@ -80,7 +91,7 @@ public class RegisterWindow extends JFrame {
         
         setVisible(true);
     }
-
+    
     public static void main(String[] args) {
         new RegisterWindow();
     }

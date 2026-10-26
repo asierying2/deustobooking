@@ -19,6 +19,7 @@ public class AdminWindow  extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		crearMenu();
+		//Para probar las diferentes interfaces de admin cambiar esta linea
 		add(new ResumenAdminPanel(), BorderLayout.CENTER);
 		
 	};
@@ -37,7 +38,7 @@ public class AdminWindow  extends JFrame{
 		JPanel menu = new JPanel();
 		
 		//poner botones a la izquierda
-		menu.setLayout(new FlowLayout(FlowLayout.LEFT));
+		menu.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
 		
 		JButton botonResumen = new JButton("Resumen");
 	    JButton botonHabitaciones = new JButton("Habitaciones");

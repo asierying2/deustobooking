@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import es.deusto.deustobooking.obj.Habitacion;
 
 public class GestionHabitacionesPanel extends JPanel {
 	
@@ -62,21 +65,37 @@ public class GestionHabitacionesPanel extends JPanel {
     }
     
     private void crearTabla() {
-    	String columnas[] = {
-    			"Nº", "Tipo", "Cap.", "Precio/Noche", "Estado"
-    	};
-    	
-    	//Datos con IA
-    	Object[][] habitaciones = {
-    	        {101, "Doble estándar", 2, "120 €", "Activa"},
-    	        {102, "Doble estándar", 2, "120 €", "Activa"},
-    	        {201, "Doble superior", 2, "145 €", "Activa"},
-    	        {301, "Suite", 3, "190 €", "Mantenimiento"}
-    	    };
-    	
-    	JTable tabla = new JTable(habitaciones, columnas);
-    	
-    	add(new JScrollPane(tabla), BorderLayout.CENTER);
+
+        String columnas[] = {
+            "Nº", "Tipo", "Cap.", "Precio/Noche", "Estado"
+        };
+
+        Habitacion[] habitaciones = {
+            new Habitacion(101, "Doble estándar", 2, 120, true),
+            new Habitacion(102, "Doble estándar", 2, 120, true),
+            new Habitacion(201, "Doble superior", 2, 145, true),
+            new Habitacion(301, "Suite", 3, 190, false)
+        };
+
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+
+        for (Habitacion h : habitaciones) {
+
+            Object[] fila = {
+                h.getNumero(),
+                h.getTipo(),
+                h.getCapacidad(),
+                h.getPrecioNoche(),
+                //si la disponibilidad esta a true se muestra "activa", si no se muestra "No disponible"
+                h.isDisponible() ? "Activa" : "No disponible"
+            };
+
+            modelo.addRow(fila);
+        }
+
+        JTable tabla = new JTable(modelo);
+
+        add(new JScrollPane(tabla), BorderLayout.CENTER);
     }
     
 

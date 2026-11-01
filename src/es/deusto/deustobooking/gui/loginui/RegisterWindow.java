@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serial;
 
 public class RegisterWindow extends JFrame {
@@ -92,6 +94,15 @@ public class RegisterWindow extends JFrame {
         c.gridx = 1;
         c.gridy = 4;
         loginPanel.add(passwordR, c);
+        
+        iniSeButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LoginWindow();
+                dispose();
+            }
+        });
         
         buttonPanel.add(iniSeButton);
         buttonPanel.add(createAccButton);

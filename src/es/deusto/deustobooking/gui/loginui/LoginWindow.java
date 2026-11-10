@@ -26,7 +26,7 @@ public class LoginWindow extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
-        JLabel nameField = new JLabel("Correo electrónico/Usuario: ");
+        JLabel nameField = new JLabel("Correo electrónico: ");
         JTextField nameEmail = new JTextField(22);
 
         JLabel passwordLabel = new JLabel("Contraseña: ");

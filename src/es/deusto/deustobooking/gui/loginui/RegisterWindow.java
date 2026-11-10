@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serial;
 
 public class RegisterWindow extends JFrame {
@@ -17,7 +19,7 @@ public class RegisterWindow extends JFrame {
     public RegisterWindow() {
         setTitle("Registro a DeustoBooking");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(640, 480);
         setResizable(false);
         setLocationRelativeTo(null);
         
@@ -27,17 +29,24 @@ public class RegisterWindow extends JFrame {
         titleHeader.setBorder(BorderFactory.createEmptyBorder(30, 10, 10, 10));
         
         //Creación de componentes
+        JButton iniSeButton = new JButton("Iniciar sesión");
         JButton createAccButton = new JButton("Crear cuenta");
         JButton cancelButton = new JButton("Cancelar");
         
-        JLabel nameField = new JLabel("Correo electrónico: ");
-        JTextField nameEmail = new JTextField(30);
+        JLabel nombreLabel = new JLabel("Nombre: ");
+        JTextField nombre = new JTextField(30);
+
+        JLabel apellidosLabel = new JLabel("Apellidos: ");
+        JTextField apellidos = new JTextField(30);
+        
+        JLabel emailField = new JLabel("Correo electrónico: ");
+        JTextField email = new JTextField(30);
 
         JLabel passwordLabel = new JLabel("Contraseña (máximo 22 caracteres): ");
-        JPasswordField password = new JPasswordField(22);
+        JPasswordField password = new JPasswordField(30);
         
         JLabel passwordRLabel = new JLabel("Repita la contraseña: ");
-        JPasswordField passwordR = new JPasswordField(22);
+        JPasswordField passwordR = new JPasswordField(30);
         
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -45,31 +54,57 @@ public class RegisterWindow extends JFrame {
         
         c.insets = new Insets(10, 10, 10, 10); 
         c.anchor = GridBagConstraints.WEST;
-
+        
         c.gridx = 0;
         c.gridy = 0;
-        loginPanel.add(nameField, c);
-
+        loginPanel.add(nombreLabel, c);
+        
         c.gridx = 1;
         c.gridy = 0;
-        loginPanel.add(nameEmail, c);
-
+        loginPanel.add(nombre, c);
+        
         c.gridx = 0;
         c.gridy = 1;
+        loginPanel.add(apellidosLabel, c);
+        
+        c.gridx = 1;
+        c.gridy = 1;
+        loginPanel.add(apellidos, c);
+        
+        c.gridx = 0;
+        c.gridy = 2;
+        loginPanel.add(emailField, c);
+
+        c.gridx = 1;
+        c.gridy = 2;
+        loginPanel.add(email, c);
+
+        c.gridx = 0;
+        c.gridy = 3;
         loginPanel.add(passwordLabel, c);
         
         c.gridx = 1;
-        c.gridy = 1;
+        c.gridy = 3;
         loginPanel.add(password, c);
         
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 4;
         loginPanel.add(passwordRLabel, c);
         
         c.gridx = 1;
-        c.gridy = 2;
+        c.gridy = 4;
         loginPanel.add(passwordR, c);
         
+        iniSeButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LoginWindow();
+                dispose();
+            }
+        });
+        
+        buttonPanel.add(iniSeButton);
         buttonPanel.add(createAccButton);
         buttonPanel.add(cancelButton);
 
@@ -80,7 +115,7 @@ public class RegisterWindow extends JFrame {
         
         setVisible(true);
     }
-
+    
     public static void main(String[] args) {
         new RegisterWindow();
     }

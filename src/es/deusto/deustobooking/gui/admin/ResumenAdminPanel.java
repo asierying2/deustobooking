@@ -49,7 +49,8 @@ public class ResumenAdminPanel extends JPanel {
             } else {
                 JOptionPane.showMessageDialog(this,
                         "Cliente: " + tabla.getValueAt(fila, 1)
-                        + "\nHabitación: " + tabla.getValueAt(fila, 2));
+                        + "\nHabitación: " + tabla.getValueAt(fila, 2)
+                		+ "\nMovimiento: " + tabla.getValueAt(fila, 3));
             }
         });
 

@@ -25,7 +25,7 @@ public class ResumenAdminPanel extends JPanel {
         JPanel datos = new JPanel(new GridLayout(1, 3));
 
         datos.add(new JLabel("Habitaciones ocupadas: 18/30"));
-        datos.add(new JLabel("Ocupacion: 60%"));
+        datos.add(new JLabel("Ocupación: 60%"));
         JLabel contador = new JLabel();
         datos.add(contador);
 
@@ -34,8 +34,8 @@ public class ResumenAdminPanel extends JPanel {
 
         Object[][] filas = {
             {"DB-1042", "Ana Garcia", "Doble", "Nueva reserva"},
-            {"DB-1039", "Iker Perez", "Suite", "Modificacion"},
-            {"DB-1031", "Leire Ruiz", "Doble", "Cancelacion"}
+            {"DB-1039", "Iker Perez", "Suite", "Modificación"},
+            {"DB-1031", "Leire Ruiz", "Doble", "Cancelación"}
         };
 
         JTable tabla = new JTable(filas, columnas);
@@ -49,7 +49,7 @@ public class ResumenAdminPanel extends JPanel {
             } else {
                 JOptionPane.showMessageDialog(this,
                         "Cliente: " + tabla.getValueAt(fila, 1)
-                        + "\nHabitacion: " + tabla.getValueAt(fila, 2));
+                        + "\nHabitación: " + tabla.getValueAt(fila, 2));
             }
         });
 
@@ -60,7 +60,7 @@ public class ResumenAdminPanel extends JPanel {
             if (fila == -1) {
                 JOptionPane.showMessageDialog(this, "Selecciona una reserva");
             } else {
-                tabla.setValueAt("Cancelacion", fila, 3);
+                tabla.setValueAt("Cancelación", fila, 3);
                 actualizarContador(tabla, contador);
             }
         });

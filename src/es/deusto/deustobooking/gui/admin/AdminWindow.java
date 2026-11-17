@@ -78,6 +78,7 @@ public class AdminWindow  extends JFrame{
 		     cardLayout.show(panelCentral, "Habitaciones");
 		     seleccionarBoton(botonHabitaciones, botones);
 		 });
+		 
 		  
 	    menu.add(botonResumen);
 	    menu.add(botonHabitaciones);

@@ -1,5 +1,7 @@
 package es.deusto.deustobooking.gui.admin;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
@@ -16,7 +18,7 @@ public class ResumenAdminPanel extends JPanel {
 
     public ResumenAdminPanel() {
 
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(0, 8));
 
         // Titulo
         add(new JLabel("Resumen del administrador"), BorderLayout.NORTH);
@@ -39,6 +41,7 @@ public class ResumenAdminPanel extends JPanel {
         };
 
         JTable tabla = new JTable(filas, columnas);
+        EstiloVentanas.prepararTabla(tabla);
         actualizarContador(tabla, contador);
         JButton botonVer = new JButton("Ver reserva");
         botonVer.addActionListener(e -> {
@@ -66,12 +69,12 @@ public class ResumenAdminPanel extends JPanel {
             }
         });
 
-        JPanel centro = new JPanel(new BorderLayout());
+        JPanel centro = new JPanel(new BorderLayout(0, 8));
         centro.add(datos, BorderLayout.NORTH);
         centro.add(new JScrollPane(tabla), BorderLayout.CENTER);
 
         add(centro, BorderLayout.CENTER);
-        JPanel botones = new JPanel();
+        JPanel botones = EstiloVentanas.crearBarraBotones();
 
         botones.add(botonVer);
         botones.add(botonCancelar);

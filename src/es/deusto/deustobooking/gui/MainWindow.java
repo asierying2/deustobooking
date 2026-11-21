@@ -8,11 +8,11 @@ public class MainWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     
     public MainWindow() {
-        setTitle("DeustoBooking");
+
+        EstiloVentanas.prepararVentana(this, "Inicio");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 600);
-        setLocationRelativeTo(null);
-        setResizable(false);
+
+
         
         setVisible(true);
     }

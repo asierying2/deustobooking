@@ -1,10 +1,10 @@
 package es.deusto.deustobooking.gui.loginui;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import javax.swing.*;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,16 +17,12 @@ public class RegisterWindow extends JFrame {
     private static final long serialVersionUID = 1L;
 
     public RegisterWindow() {
-        setTitle("Registro a DeustoBooking");
+
+        JPanel contenido = EstiloVentanas.prepararVentana(this, "Crear cuenta");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(640, 480);
-        setResizable(false);
-        setLocationRelativeTo(null);
+
         
        
-        JLabel titleHeader = new JLabel("Ventana para la creación de cuenta, si ya tiene una, inicie sesión.", SwingConstants.CENTER);  
-        titleHeader.setFont(titleHeader.getFont().deriveFont(Font.BOLD));
-        titleHeader.setBorder(BorderFactory.createEmptyBorder(30, 10, 10, 10));
         
         //Creación de componentes
         JButton iniSeButton = new JButton("Iniciar sesión");
@@ -34,25 +30,25 @@ public class RegisterWindow extends JFrame {
         JButton cancelButton = new JButton("Cancelar");
         
         JLabel nombreLabel = new JLabel("Nombre: ");
-        JTextField nombre = new JTextField(30);
+        JTextField nombre = new JTextField(26);
 
         JLabel apellidosLabel = new JLabel("Apellidos: ");
-        JTextField apellidos = new JTextField(30);
+        JTextField apellidos = new JTextField(26);
         
         JLabel emailField = new JLabel("Correo electrónico: ");
-        JTextField email = new JTextField(30);
+        JTextField email = new JTextField(26);
 
         JLabel passwordLabel = new JLabel("Contraseña (máximo 22 caracteres): ");
-        JPasswordField password = new JPasswordField(30);
+        JPasswordField password = new JPasswordField(26);
         
         JLabel passwordRLabel = new JLabel("Repita la contraseña: ");
-        JPasswordField passwordR = new JPasswordField(30);
+        JPasswordField passwordR = new JPasswordField(26);
         
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel buttonPanel = EstiloVentanas.crearBarraBotones();
         
-        c.insets = new Insets(10, 10, 10, 10); 
+        c.insets = new Insets(5, 5, 5, 5); 
         c.anchor = GridBagConstraints.WEST;
         
         c.gridx = 0;
@@ -109,9 +105,8 @@ public class RegisterWindow extends JFrame {
         buttonPanel.add(cancelButton);
 
         // Asignación de los componentes a la ventana principal
-        this.add(titleHeader, BorderLayout.NORTH);
-        this.add(loginPanel, BorderLayout.CENTER);
-        this.add(buttonPanel, BorderLayout.SOUTH);
+        contenido.add(loginPanel, BorderLayout.CENTER);
+        contenido.add(buttonPanel, BorderLayout.SOUTH);
         
         setVisible(true);
     }

@@ -83,7 +83,7 @@ public class ResumenAdminPanel extends JPanel {
         int activas = 0;
 
         for (int i = 0; i < tabla.getRowCount(); i++) {
-            if (!"Cancelacion".equals(tabla.getValueAt(i, 3))) {
+            if (!"Cancelación".equals(tabla.getValueAt(i, 3))) {
                 activas++;
             }
         }

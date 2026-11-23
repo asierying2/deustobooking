@@ -1,10 +1,10 @@
 package es.deusto.deustobooking.gui.admin;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -20,12 +20,11 @@ public class AdminWindow  extends JFrame{
 	private JPanel panelCentral;
 	
 	public AdminWindow() {
-		setTitle("DeustoBooking - Administrador");
-		setSize(640, 480);
-		setLocationRelativeTo(null);
+
+		JPanel contenido = EstiloVentanas.prepararVentana(this, "Administración");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		crearMenu();
+		crearMenu(contenido);
 		
 		cardLayout = new CardLayout();
 		panelCentral = new JPanel(cardLayout);
@@ -33,7 +32,7 @@ public class AdminWindow  extends JFrame{
 		panelCentral.add(new ResumenAdminPanel(), "Resumen");
 		panelCentral.add(new GestionHabitacionesPanel(), "Habitaciones");
 		
-		add(panelCentral, BorderLayout.CENTER);
+		contenido.add(panelCentral, BorderLayout.CENTER);
 		
 		//empezar con resumen
 		cardLayout.show(panelCentral, "Resumen");
@@ -49,12 +48,12 @@ public class AdminWindow  extends JFrame{
 		
 	}
 	
-	public void crearMenu() {
+	private void crearMenu(JPanel contenido) {
 		
 		JPanel menu = new JPanel();
 		
 		//poner botones a la izquierda
-		menu.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+		menu.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		
 		JButton botonResumen = new JButton("Resumen");
 	    JButton botonHabitaciones = new JButton("Habitaciones");
@@ -86,7 +85,7 @@ public class AdminWindow  extends JFrame{
 	    menu.add(botonOcupacion);
 	    menu.add(botonCerrarSesion);
 	    
-	    add(menu, BorderLayout.NORTH);
+	    contenido.add(menu, BorderLayout.NORTH);
 	    
 	    botonResumen.setEnabled(false);
 	}

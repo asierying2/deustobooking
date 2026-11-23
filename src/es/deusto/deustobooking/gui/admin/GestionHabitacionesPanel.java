@@ -1,8 +1,9 @@
 	package es.deusto.deustobooking.gui.admin;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,10 +21,10 @@ public class GestionHabitacionesPanel extends JPanel {
 
     public GestionHabitacionesPanel() {
 
-    	setLayout(new BorderLayout());
+    	setLayout(new BorderLayout(0, 8));
 
         //Le he pedido ayuda a la IA para organizar mejor esta parte y recomienda crear un panel para poder tener el titulo y los filtros en una misma zona
-        JPanel superior = new JPanel(new BorderLayout());
+        JPanel superior = new JPanel(new BorderLayout(0, 8));
 
         JLabel titulo = new JLabel("Gestión de habitaciones y precios");
 
@@ -94,6 +95,7 @@ public class GestionHabitacionesPanel extends JPanel {
         }
 
         JTable tabla = new JTable(modelo);
+        EstiloVentanas.prepararTabla(tabla);
 
         add(new JScrollPane(tabla), BorderLayout.CENTER);
     }
@@ -101,7 +103,7 @@ public class GestionHabitacionesPanel extends JPanel {
 
 	private void crearBotones() {
 	
-	    JPanel botones = new JPanel(new GridLayout(1, 4, 10, 0));
+	    JPanel botones = EstiloVentanas.crearBarraBotones();
 	
 	    JButton botonNueva = new JButton("Nueva");
 	    JButton botonEditar = new JButton("Editar");

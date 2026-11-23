@@ -1,5 +1,7 @@
 package es.deusto.deustobooking.gui.loginui;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,11 +12,11 @@ public class LoginWindow extends JFrame {
     private static final long serialVersionUID = 1L;
 
     public LoginWindow() {
-        setTitle("Inicio de sesión a DeustoBooking");
+
+        JPanel contenido = EstiloVentanas.prepararVentana(this, "Iniciar sesión");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500, 200);
-        setLocationRelativeTo(null);
-        setResizable(false);
+
+
 
         /* Suggestion from ChatGPT: for the layout we want from drafts, we need to use GridBagLayout
         * that creates an invisible, flexible grid (similar to GridLayout, but flexible size)
@@ -24,13 +26,13 @@ public class LoginWindow extends JFrame {
         */
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel buttonPanel = EstiloVentanas.crearBarraBotones();
 
         JLabel nameField = new JLabel("Correo electrónico: ");
-        JTextField nameEmail = new JTextField(22);
+        JTextField nameEmail = new JTextField(26);
 
         JLabel passwordLabel = new JLabel("Contraseña: ");
-        JPasswordField password = new JPasswordField(22);
+        JPasswordField password = new JPasswordField(26);
 
         JButton loginButton = new JButton("Iniciar sesión");
         JButton registerButton = new JButton("Registrar...");
@@ -86,8 +88,8 @@ public class LoginWindow extends JFrame {
         buttonPanel.add(registerButton);
         buttonPanel.add(cancelButton);
 
-        this.add(loginPanel, BorderLayout.CENTER);
-        this.add(buttonPanel, BorderLayout.SOUTH);
+        contenido.add(loginPanel, BorderLayout.CENTER);
+        contenido.add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
     }

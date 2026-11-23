@@ -1,14 +1,14 @@
 package es.deusto.deustobooking.gui.habitacionesui;
 
+import es.deusto.deustobooking.gui.EstiloVentanas;
+
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -49,15 +49,12 @@ public class HabitacionesWindow extends JFrame {
 
     public HabitacionesWindow(String hotel, List<Habitacion> habitaciones) {
         this.habitaciones = new ArrayList<>(habitaciones);
-        setTitle("DeustoBooking - Habitaciones");
+
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        JPanel principal = new JPanel(new BorderLayout(12, 12));
-        principal.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
-        setContentPane(principal);
+        JPanel principal = EstiloVentanas.prepararVentana(this, "Habitaciones de " + hotel);
 
         JPanel cabecera = new JPanel(new GridLayout(0, 1, 0, 8));
-        cabecera.add(new JLabel("Habitaciones de " + hotel));
         cabecera.add(new JLabel("Prototipo: una habitación por selección. Datos de ejemplo sin consulta por fechas."));
         JPanel filtros = new JPanel(new FlowLayout(FlowLayout.LEFT));
         filtros.add(new JLabel("Huéspedes:"));
@@ -69,8 +66,7 @@ public class HabitacionesWindow extends JFrame {
         principal.add(cabecera, BorderLayout.NORTH);
 
         tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tabla.setRowHeight(28);
-        tabla.setFillsViewportHeight(true);
+        EstiloVentanas.prepararTabla(tabla);
         tabla.getTableHeader().setReorderingAllowed(false);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
         principal.add(new JScrollPane(tabla), BorderLayout.CENTER);
@@ -78,13 +74,13 @@ public class HabitacionesWindow extends JFrame {
         JPanel pie = new JPanel(new GridLayout(0, 1, 0, 8));
         pie.add(seleccion);
         pie.add(total);
-        JPanel botones = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JPanel botones = EstiloVentanas.crearBarraBotones();
         JButton cerrar = new JButton("Cerrar");
         cerrar.addActionListener(e -> dispose());
         botones.add(cerrar);
         botones.add(resumen);
-        pie.add(botones);
         pie.add(estado);
+        pie.add(botones);
         principal.add(pie, BorderLayout.SOUTH);
 
         huespedes.addChangeListener(e -> cargarTabla());
@@ -95,9 +91,7 @@ public class HabitacionesWindow extends JFrame {
         });
         resumen.addActionListener(e -> mostrarResumen());
         cargarTabla();
-        setMinimumSize(new Dimension(760, 460));
-        setSize(820, 520);
-        setLocationRelativeTo(null);
+
     }
 
     private void cargarTabla() {

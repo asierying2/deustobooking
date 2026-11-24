@@ -2,35 +2,37 @@ package es.deusto.deustobooking.main;
 
 import java.sql.SQLException;
 
-import es.deusto.deustobooking.db.BD;
+import es.deusto.deustobooking.db.ConexionBD;
+import es.deusto.deustobooking.db.HabitacionesDAO;
 import es.deusto.deustobooking.obj.Habitacion;
 
 public class PrincipalBD {
 
     public static void main(String[] args) {
 
-        BD bd = new BD();
+        ConexionBD conexionBd = new ConexionBD();
 
         try {
 
-            bd.initBD("resources/db/deustobooking.db");
-            bd.crearTablas();
+            conexionBd.initBD("resources/db/deustobooking.db");
+            conexionBd.crearTablas();
 
-            if (bd.obtenerHabitaciones().isEmpty()) {
+            HabitacionesDAO habDAO = new HabitacionesDAO(conexionBd.getConnection());
+            if (habDAO.obtenerHabitaciones().isEmpty()) {
 
-                bd.insertarHabitacion(new Habitacion(101, "Doble estándar", 2, 120, true));
-                bd.insertarHabitacion(new Habitacion(102, "Doble estándar", 2, 120, true));
-                bd.insertarHabitacion(new Habitacion(201, "Doble superior", 2, 145, true));
-                bd.insertarHabitacion(new Habitacion(301, "Suite", 3, 190, false));
+                habDAO.insertarHabitacion(new Habitacion(101, "Doble estándar", 2, 120, true));
+                habDAO.insertarHabitacion(new Habitacion(102, "Doble estándar", 2, 120, true));
+                habDAO.insertarHabitacion(new Habitacion(201, "Doble superior", 2, 145, true));
+                habDAO.insertarHabitacion(new Habitacion(301, "Suite", 3, 190, false));
             }
 
-            System.out.println(bd.obtenerHabitaciones());
+            System.out.println(habDAO.obtenerHabitaciones());
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
             try {
-                bd.closeBD();
+                conexionBd.closeBD();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

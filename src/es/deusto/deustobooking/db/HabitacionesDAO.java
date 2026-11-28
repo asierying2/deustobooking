@@ -57,4 +57,30 @@ public class HabitacionesDAO {
 
         return habitaciones;
     }
+    //FUENTE-EXTERNA
+    //URL: ChatGPT
+    //SIN-CAMBIOS
+    public boolean modificarHabitacion(Habitacion h) throws SQLException {
+        String sql = "UPDATE Habitacion SET tipo = ?, capacidad = ?, precioNoche = ?, disponible = ? WHERE numero = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, h.getTipo());
+            ps.setInt(2, h.getCapacidad());
+            ps.setDouble(3, h.getPrecioNoche());
+            ps.setBoolean(4, h.isDisponible());
+            ps.setInt(5, h.getNumero());
+
+            return ps.executeUpdate() > 0;
+        }
+    }
+
+    public boolean borrarHabitacion(int numero) throws SQLException {
+        String sql = "DELETE FROM Habitacion WHERE numero = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, numero);
+
+            return ps.executeUpdate() > 0;
+        }
+    }
 }

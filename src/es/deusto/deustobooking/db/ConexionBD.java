@@ -67,5 +67,9 @@ public class ConexionBD {
         try (PreparedStatement ps = con.prepareStatement(sql2)) {
             ps.execute();
         }
+        
+        try (PreparedStatement ps = con.prepareStatement(sql3)) {
+            ps.execute();
+        }
     }
 }
